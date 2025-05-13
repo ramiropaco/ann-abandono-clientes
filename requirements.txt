@@ -1,2 +1,6 @@
-tensorflow>=2.19
 streamlit
+numpy
+tensorflow
+scikit-learn
+pandas
+pickle-mixin
