@@ -74,10 +74,15 @@ input_data_scaled = scaler.transform(input_data)
 prediction = model.predict(input_data_scaled)
 prediction_proba = prediction[0][0]
 
+# Verificar en la consola el valor real de la predicción
+print(f"Valor de prediction: {prediction}")
+print(f"Valor de prediction_proba: {prediction_proba}")
+
 # Convertir la probabilidad a porcentaje
 porcentaje_abandono = prediction_proba * 100
 
 # Mostrar resultados con formato de color según la predicción
+# Si prediction_proba > 0.5, significa más del 50% de probabilidad de abandono
 if prediction_proba > 0.5:
     st.markdown(f'<h3 style="color:red">Probabilidad de abandono: {porcentaje_abandono:.2f}%</h3>', unsafe_allow_html=True)
     st.markdown('<p style="color:red; font-weight:bold">Es probable que el cliente abandone.</p>', unsafe_allow_html=True)
